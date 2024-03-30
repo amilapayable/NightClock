@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AminoNightClock</string>
+    <string name="settings">Settings</string>
+
 </resources>

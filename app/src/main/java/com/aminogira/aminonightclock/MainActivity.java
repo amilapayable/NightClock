@@ -1,6 +1,7 @@
 package com.aminogira.aminonightclock;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
@@ -17,6 +18,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -61,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
         handler = new Handler();
         updateClock();
 
+        ImageButton settingsButton = findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 //        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
 //        wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "MyApp::MyWakelockTag");
 //        wakeLock.acquire();
@@ -69,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
- 
+
 
     private void updateClock() {
         handler.postDelayed(new Runnable() {
